@@ -84,17 +84,6 @@ return {
   },
   -- }}}
 
-  -- Trouble {{{
-  {
-    "folke/trouble.nvim",
-    cmd = { "TroubleToggle" },
-    dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require "extensions.trouble"
-    end,
-  },
-  -- -- }}}
-
   -- TreeSitter {{{
   {
     "nvim-treesitter/nvim-treesitter",
@@ -106,19 +95,10 @@ return {
   },
   -- }}}
 
--- Theme {{{
+-- Theme: Catppuccin {{{
   { "catppuccin/nvim", name = "catppuccin", priority = 1000,
   lazy = false,
-  opts = {
-    flavour = "mocha",
-    transparent_background = true,
-    custom_highlights = function(colors)
-        return {
-            LineNrAbove = { fg = colors.text },
-            LineNrBelow = { fg = colors.text },
-        }
-    end,
-    },
+  config = require"extensions.colorscheme.catppuccin"
   },
 -- }}}
 
@@ -128,7 +108,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
-      require("extensions.bufferline").setup()
+      require("extensions.bufferline")
   end,
   },
 -- }}}
@@ -151,14 +131,6 @@ return {
   },
 -- }}}
 
--- comment.nvim {{{
-  {
-    'numToStr/Comment.nvim',
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {},
-  },
--- }}}
-
 -- vim-illuminate {{{
   {
     'RRethy/vim-illuminate',
@@ -178,21 +150,11 @@ return {
     event = "VeryLazy",
     init = function()
       opt.timeout = true
-      opt.timeoutlen = 800
+      opt.timeoutlen = 500
     end,
-    opts = {
-    presets = {
-      operators = true, -- adds help for operators like d, y, ...
-      motions = true, -- adds help for motions
-      text_objects = true, -- help for text objects triggered after entering an operator
-      windows = true, -- default bindings on <c-w>
-      nav = true, -- misc bindings to work with windows
-      z = true, -- bindings for folds, spelling and others prefixed with z
-      g = true, -- bindings for prefixed with g
-    },
-
-
-    }
+    opts = function ()
+      require"extensions.which-key"
+    end
   },
 -- }}}
 
@@ -208,12 +170,31 @@ return {
 },
 -- }}}
 
--- nvim-navic {{{
+-- NeoColumn {{{
   {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
+    "ecthelionvi/NeoColumn.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {  always_on = true }
+  },
+-- }}}
+
+-- mini.nvim {{{
+
+-- mini.comment
+  { 'echasnovski/mini.comment',
+    version = false,
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {}
   },
 
+  -- mini.bufremove
+  { 'echasnovski/mini.bufremove', version = false },
+
+-- }}}
+
+--- Blazingly Fast{{{
+	{ "ThePrimeagen/harpoon" },
+	{ "ThePrimeagen/vim-be-good" },
 -- }}}
 }
 

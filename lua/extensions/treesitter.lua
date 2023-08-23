@@ -3,15 +3,12 @@
   Description: Configuration of tree-sitter
   See: https://github.com/tree-sitter/tree-sitter
 ]]
+
+
 require'nvim-treesitter.configs'.setup {
 
   -- Needed parsers
-  ensure_installed = {
-    "lua",
-    "go",
-    "python",
-    "c",
-  },
+  ensure_installed = require"helpers.ensure".treesitter,
 
   -- Install all parsers synchronously
   sync_install = false,

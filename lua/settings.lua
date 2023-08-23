@@ -12,20 +12,6 @@ cmd[[filetype plugin on]]
 -- Disable comments on pressing Enter
 cmd[[autocmd FileType * setlocal formatoptions-=cro]]
 
--- BufferKill {{{
-local BufferKill = {
-    name = "BufferKill",
-    fn = function()
-      require("extensions.bufferline").buf_kill "bd"
-    end
-}
-
-local common_opts = { force = true }
-local opts = vim.tbl_deep_extend("force", common_opts, {})
-vim.api.nvim_create_user_command(BufferKill.name, BufferKill.fn, opts)
--- }}}
-
-
 -- LSP {{{
 local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do

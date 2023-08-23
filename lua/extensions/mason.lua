@@ -10,12 +10,8 @@ local lspconfig = require("lspconfig")
 
 mason.setup()
 mason_lspconfig.setup({
-  ensure_installed = {
-    "lua_ls",             -- LSP for Lua language
-    "pyright",            -- LSP for Python
-    "clangd",             -- LSP for C
-  }
-});
+  ensure_installed = require"helpers.ensure".mason
+  });
 
 -- Setup every needed language server in lspconfig
 mason_lspconfig.setup_handlers {

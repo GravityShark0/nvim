@@ -4,9 +4,34 @@ require "helpers/keyboard"
 g.mapleader = ' '                                                                 -- Use Space, like key for alternative hotkeys
 
 -- Custom {{{
-nm('Y', '"+y')
-vm('Y', '"+y')
-nm('<leader>x', '<cmd>BufferKill<CR>')
+-- Space + y|d yanks or cuts to system clipboard
+nm('<leader>y', "\"+y")
+vm('<leader>y', '\"+y')
+nm('<leader>d', '\"+d')
+vm('<leader>d', '\"+d')
+
+-- Space + w to save and Space + c to close buffer
+nm('<leader>c', '<CMD>lua require("mini.bufremove").delete()<CR>')
+nm('<leader>wc', '<CMD>w | lua require("mini.bufremove").delete()<CR>')
+nm('<leader>ww', '<CMD>w<CR>')
+
+-- Middle positioned C+ D/U 
+nm('<C-d>', '<C-d>zz')
+nm('<C-u>', '<C-u>zz')
+
+-- Correct Pasting
+im ('<CS-P>', '"+p')
+-- }}}
+
+-- Harpoon {{{
+		nm('<leader>a', '<CMD> lua require("harpoon.mark").add_file() <CR>')
+		nm('<leader>`', '<CMD> lua require("harpoon.ui").toggle_quick_menu() <CR>')
+		nm('<A-1>', '<CMD> lua require("harpoon.ui").nav_file(1) <CR>')
+		nm('<A-2>', '<CMD> lua require("harpoon.ui").nav_file(2) <CR>')
+		nm('<A-3>', '<CMD> lua require("harpoon.ui").nav_file(3) <CR>')
+		nm('<A-4>', '<CMD> lua require("harpoon.ui").nav_file(4) <CR>')
+		nm('<A-5>', '<CMD> lua require("harpoon.ui").nav_file(5) <CR>')
+		nm('<A-6>', '<CMD> lua require("harpoon.ui").nav_file(6) <CR>')
 -- }}}
 
 -- LSP {{{
@@ -17,32 +42,23 @@ nm('gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')                              
  -- }}}
 
 -- Telescope {{{
-nm('gd', '<cmd>Telescope lsp_definitions<CR>')                            -- Goto declaration
-nm('<leader>fr', '<cmd>Telescope oldfiles<CR>')                                   -- Show recent files
-nm('<leader>fg', '<cmd>Telescope git_files<CR>')                                  -- Search for a file in project
-nm('<leader>ff', '<cmd>Telescope find_files<CR>')                                 -- Search for a file (ignoring git-ignore)
-nm('<leader>fi', '<cmd>Telescope jumplist<CR>')                                   -- Show jumplist (previous locations)
-nm('<leader>fb', '<cmd>Telescope git_branches<CR>')                               -- Show git branches
-nm('<leader>fg', '<cmd>Telescope live_grep<CR>')                                  -- Find a string in project
-nm('<leader>fq', '<cmd>Telescope buffers<CR>')                                    -- Show all buffers
-nm('<leader>fa', '<cmd>Telescope<CR>')                                            -- Show all commands
-nm('<leader>ft', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')              -- Search for dynamic symbols
-nm('<leader>fu', '<cmd>Telescope undo<CR>')              -- Search for dynamic symbols
--- }}}
-
--- Trouble {{{
--- nm('<leader>x', '<cmd>TroubleToggle<CR>')                                         -- Show all problems in project (with help of LSP)
--- nm('gr', '<cmd>Trouble lsp_references<CR>')                                       -- Show use of object in project
+nm('gd', '<cmd>Telescope lsp_definitions<CR>')                                  -- Goto declaration
+nm('<leader>fr', '<cmd>Telescope oldfiles<CR>')                                 -- Show recent files
+nm('<leader>fg', '<cmd>Telescope git_files<CR>')                                -- Search for a file in project
+nm('<leader>ff', '<cmd>Telescope find_files<CR>')                               -- Search for a file (ignoring dotfiles)
+nm('<leader>fa', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>')    -- Search for a file (with dotfiles)
+nm('<leader>fi', '<cmd>Telescope jumplist<CR>')                                 -- Show jumplist (previous locations)
+nm('<leader>fb', '<cmd>Telescope git_branches<CR>')                             -- Show git branches
+nm('<leader>fg', '<cmd>Telescope live_grep<CR>')                                -- Find a string in project
+nm('<leader>fq', '<cmd>Telescope buffers<CR>')                                  -- Show all buffers
+nm('<leader>f?', '<cmd>Telescope<CR>')                                          -- Show all commands
+nm('<leader>ft', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')            -- Search for dynamic symbols
+nm('<leader>fu', '<cmd>Telescope undo<CR>')                                     -- Show undotree 
 -- }}}
 
 -- Neo Tree {{{
 nm('<leader>n', '<cmd>Neotree toggle<CR>')                                        -- Toggle file explorer
 nm('<leader>e', '<cmd>Neotree focus<CR>')                                        -- Toggle file explorer
--- }}}
-
--- Nvim Tree {{{
--- nm('<leader>n', '<cmd>NvimTreeToggle<CR>')                                        -- Toggle file explorer
--- nm('<leader>e', '<cmd>NvimTreeFocus<CR>')                                        -- Toggle file explorer
 -- }}}
 
 -- Bufferline {{{
