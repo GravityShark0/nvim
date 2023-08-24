@@ -19,6 +19,7 @@ git clone https://github.com/GravityShark0/nvim $HOME/.config/nvim
 │  │
 │  ├── helpers
 │  │  ├── globals.lua         -- Global variables (aliases)
+│  │  ├── ensure.lua          -- Lists for Mason and Treesitter
 │  │  └── keyboard.lua        -- Keyboard helper functions
 │  │
 │  ├── keybindings.lua        -- Keyboard mappings
