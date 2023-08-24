@@ -8,7 +8,25 @@
 require "helpers/globals"
 
 return {
-  -- Mason {{{
+-- Themes{{{
+
+-- Catppuccin
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000,
+  lazy = false,
+  opts = require"extensions.colorscheme.catppuccin"
+  },
+
+-- Tokyo Night
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = require"extensions.colorscheme.tokyodark",
+  -- },
+
+-- }}}
+
+  -- mason.nvim {{{
   {
     "williamboman/mason.nvim",
     -- lazy = false,
@@ -23,7 +41,7 @@ return {
   },
   -- }}}
 
--- Neo Tree {{{
+-- neo-tree.nvim {{{
    {
        "nvim-neo-tree/neo-tree.nvim",
        cmd = { "Neotree" },
@@ -38,22 +56,23 @@ return {
    },
   -- }}}
 
-  -- Telescope {{{
+  -- telescope-nvim {{{
   {
   "nvim-telescope/telescope.nvim",
   cmd = { "Telescope" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "debugloop/telescope-undo.nvim",
-    'nvim-telescope/telescope-fzf-native.nvim',
   },
   config = function()
     require("extensions.telescope")
   end,
   },
+
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   -- }}}
 
-  -- CMP {{{
+  -- nvim-cmp {{{
   {
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
@@ -63,8 +82,8 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
-      'hrsh7th/cmp-nvim-lua',
+      -- 'hrsh7th/cmp-nvim-lsp-signature-help',
+      -- 'hrsh7th/cmp-nvim-lua',
       'rafamadriz/friendly-snippets',
       'onsails/lspkind-nvim',
     },
@@ -74,7 +93,7 @@ return {
   },
   -- }}}
 
-  -- Git Signs{{{
+  -- gitsigns.nvim {{{
   {
     'lewis6991/gitsigns.nvim',
     event = { "BufReadPre", "BufNewFile "},
@@ -84,7 +103,7 @@ return {
   },
   -- }}}
 
-  -- TreeSitter {{{
+  -- nvim-treesitter {{{
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -94,24 +113,6 @@ return {
     end
   },
   -- }}}
-
--- Theme: Catppuccin {{{
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000,
-  lazy = false,
-  config = require"extensions.colorscheme.catppuccin"
-  },
--- }}}
-
--- bufferline.nvim {{{
-  {'akinsho/bufferline.nvim',
-  version = "*",
-    event = { "BufReadPost", "BufNewFile" },
-  dependencies = 'nvim-tree/nvim-web-devicons',
-  config = function()
-      require("extensions.bufferline")
-  end,
-  },
--- }}}
 
 -- lualine.nvim {{{
   {
@@ -158,11 +159,11 @@ return {
   },
 -- }}}
 
--- indent-blankline.nvim{{{
+-- indent-blankline.nvim {{{
   {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPre", "BufNewFile "},
-    config = {
+    opts = {
       space_char_blankline = " ",
       show_current_context = true,
       -- show_current_context_start = true,
@@ -170,7 +171,7 @@ return {
 },
 -- }}}
 
--- NeoColumn {{{
+-- NeoColumn.nvim {{{
   {
     "ecthelionvi/NeoColumn.nvim",
     event = { "BufReadPost", "BufNewFile" },
@@ -192,7 +193,7 @@ return {
 
 -- }}}
 
---- Blazingly Fast{{{
+-- Blazingly Fast{{{
 	{ "ThePrimeagen/harpoon" },
 	{ "ThePrimeagen/vim-be-good" },
 -- }}}

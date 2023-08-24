@@ -5,12 +5,17 @@ wk.register({
     -- mappings
     f = {
         name = "Telescope (F)ile", -- optional group name
-        f = { "Find (F)ile" }, -- create a binding with label
+        f = { "Find (F)iles" }, -- create a binding with label
         r = { "Find (R)ecent" }, -- additional options for creating the keymap
-        n = { "New File" }, -- just a label. don't create any mapping
-        
-        ["1"] = "which_key_ignore",  -- special label to hide it in the popup
-        b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
+        j = { "Find (J)it files"},
+        a = { "Find (A)ll files"},
+        p = { "Find (P)revious location"},
+        b = { "Find Git (B)ranches"},
+        g = { "Find (G)rep"},
+        ["?"]= { "All"},
+        t = { "Find (T)abs [Buffers]"},
+        u = { "Find (U)ndo tree"},
+
     },
     w = {
         name = "Save",
@@ -22,7 +27,6 @@ wk.register({
     c = { "Buffer (C)lose" },
     d = { "which_key_ignore" },
     y = { "which_key_ignore" },
-    
     e = { "Neotree (E)nter" },
     n = { "Neotree (N)oggle" },
 

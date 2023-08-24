@@ -5,6 +5,7 @@ M.treesitter = {
     "go",
     "python",
     "c",
+    "markdown",
 }
 
 M.mason = {

@@ -1,5 +1,5 @@
 local M = {
-    flavour = "mocha",
+    flavour = "macchiato",
     transparent_background = true,
     custom_highlights = function(colors)
         return {

@@ -12,7 +12,7 @@ cmd[[filetype plugin on]]
 -- Disable comments on pressing Enter
 cmd[[autocmd FileType * setlocal formatoptions-=cro]]
 
--- LSP {{{
+-- LSP Diagnostics {{{
 local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
@@ -39,12 +39,6 @@ opt.shiftwidth = 4                  -- Set amount of space characters, when we p
 opt.softtabstop=4
 opt.tabstop = 4                     -- 1 tab equal 2 spaces
 opt.smartindent = true              -- Turn on smart indentation. See in the docs for more info
--- }}}
-
--- Clipboard {{{
--- opt.clipboard = 'unnamedplus' -- Use system clipboard
--- opt.clipboard = "" -- Use system clipboard
--- opt.fixeol = false -- Turn off appending new line in the end of a file
 -- }}}
 
 -- Folding {{{
@@ -94,9 +88,5 @@ for _, plugin in pairs(disabled_built_ins) do
     g["loaded_" .. plugin] = 1
 end
 -- }}}
-
-
--- LineNrAbove    xxx links to LineNr
--- LineNrBelow    xxx links to LineNr
 
 -- vim: tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=1

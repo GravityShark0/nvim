@@ -36,7 +36,6 @@ telescope.setup({
         }
     },
 
-    telescope.load_extension("undo"),
     extensions = {
         fzf = {
             fuzzy = true,
@@ -44,5 +43,7 @@ telescope.setup({
             override_file_sorter = true,
             case_mode = "smart_case",
         }
-    }
+    },
+    telescope.load_extension("undo"),
+    telescope.load_extension('fzf')
 })

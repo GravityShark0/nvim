@@ -21,3 +21,8 @@ end
 function tm(key, command)
 	map('t', key, command, {noremap = true})
 end
+
+function nvm(key, command) 
+	map('n', key, command, {noremap = true})
+	map('v', key, command, {noremap = true})
+end

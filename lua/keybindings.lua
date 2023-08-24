@@ -4,11 +4,12 @@ require "helpers/keyboard"
 g.mapleader = ' '                                                                 -- Use Space, like key for alternative hotkeys
 
 -- Custom {{{
+
 -- Space + y|d yanks or cuts to system clipboard
-nm('<leader>y', "\"+y")
-vm('<leader>y', '\"+y')
-nm('<leader>d', '\"+d')
-vm('<leader>d', '\"+d')
+nvm('<leader>y', "\"+y")
+nvm('<leader>d', '\"+d')
+-- Correct Pasting
+nvm('<leader>p', '<CMD> set paste<CR>\"+p<CMD>set paste!<CR>')
 
 -- Space + w to save and Space + c to close buffer
 nm('<leader>c', '<CMD>lua require("mini.bufremove").delete()<CR>')
@@ -18,9 +19,6 @@ nm('<leader>ww', '<CMD>w<CR>')
 -- Middle positioned C+ D/U 
 nm('<C-d>', '<C-d>zz')
 nm('<C-u>', '<C-u>zz')
-
--- Correct Pasting
-im ('<CS-P>', '"+p')
 -- }}}
 
 -- Harpoon {{{
@@ -47,12 +45,12 @@ nm('<leader>fr', '<cmd>Telescope oldfiles<CR>')                                 
 nm('<leader>fg', '<cmd>Telescope git_files<CR>')                                -- Search for a file in project
 nm('<leader>ff', '<cmd>Telescope find_files<CR>')                               -- Search for a file (ignoring dotfiles)
 nm('<leader>fa', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>')    -- Search for a file (with dotfiles)
-nm('<leader>fi', '<cmd>Telescope jumplist<CR>')                                 -- Show jumplist (previous locations)
+nm('<leader>fp', '<cmd>Telescope jumplist<CR>')                                 -- Show jumplist (previous locations)
 nm('<leader>fb', '<cmd>Telescope git_branches<CR>')                             -- Show git branches
 nm('<leader>fg', '<cmd>Telescope live_grep<CR>')                                -- Find a string in project
-nm('<leader>fq', '<cmd>Telescope buffers<CR>')                                  -- Show all buffers
+nm('<leader>ft', '<cmd>Telescope buffers<CR>')                                  -- Show all buffers
 nm('<leader>f?', '<cmd>Telescope<CR>')                                          -- Show all commands
-nm('<leader>ft', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')            -- Search for dynamic symbols
+nm('<leader>fs', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')            -- Search for dynamic symbols
 nm('<leader>fu', '<cmd>Telescope undo<CR>')                                     -- Show undotree 
 -- }}}
 
