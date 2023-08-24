@@ -4,7 +4,6 @@ and some *borrowed* ideas
 You can use this template with the following command:
 
 ```bash
-
     git clone https://github.com/GravityShark0/nvim $HOME/.config/nvim
 ```
 
