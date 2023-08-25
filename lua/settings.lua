@@ -42,7 +42,7 @@ opt.smartindent = true              -- Turn on smart indentation. See in the doc
 -- }}}
 
 -- Folding {{{
-opt.foldmethod = 'syntax'
+opt.foldmethod = 'marker'
 -- }}}
 
 -- Search {{{

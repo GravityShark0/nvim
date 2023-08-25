@@ -10,6 +10,7 @@ nvm('<leader>y', "\"+y")
 nvm('<leader>d', '\"+d')
 -- Correct Pasting
 nvm('<leader>p', '<CMD> set paste<CR>\"+p<CMD>set paste!<CR>')
+nvm('<leader>P', '<CMD> set paste<CR>\"+P<CMD>set paste!<CR>')
 
 -- Space + w to save and Space + c to close buffer
 nm('<leader>c', '<CMD>lua require("mini.bufremove").delete()<CR>')

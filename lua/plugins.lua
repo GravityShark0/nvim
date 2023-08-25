@@ -93,6 +93,17 @@ return {
   },
   -- }}}
 
+-- bufferline.nvim {{{
+  {'akinsho/bufferline.nvim',
+  version = "*",
+    event = { "BufReadPost", "BufNewFile" },
+  dependencies = 'nvim-tree/nvim-web-devicons',
+  config = function()
+      require("extensions.bufferline")
+  end,
+  },
+-- }}}
+
   -- gitsigns.nvim {{{
   {
     'lewis6991/gitsigns.nvim',
@@ -193,10 +204,20 @@ return {
 
 -- }}}
 
--- Blazingly Fast{{{
+-- Blazingly Fast {{{
 	{ "ThePrimeagen/harpoon" },
 	{ "ThePrimeagen/vim-be-good" },
 -- }}}
+
+-- nvim-colizer.lua {{{
+  {
+    'norcalli/nvim-colorizer.lua',
+    cmd = { 'ColorizerToggle' },
+    opts = {}
+  },
+-- }}}
+
+
 }
 
 
