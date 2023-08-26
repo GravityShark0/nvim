@@ -159,14 +159,15 @@ return {
 -- which-key.nvim {{{
   {
     "folke/which-key.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     init = function()
       opt.timeout = true
       opt.timeoutlen = 500
     end,
     opts = function ()
       require"extensions.which-key"
-    end
+    end,
+    keys = {"<leader>", "z", "g"}
   },
 -- }}}
 
@@ -217,7 +218,13 @@ return {
   },
 -- }}}
 
-
+-- orgmode {{{
+  -- {
+  --   'nvim-orgmode/orgmode',
+  --   lazy = false,
+  --   config = {}
+  -- }
+-- }}}
 }
 
 
