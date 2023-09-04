@@ -2,6 +2,7 @@ require "helpers/globals"
 require "helpers/keyboard"
 
 g.mapleader = ' '                                                                 -- Use Space, like key for alternative hotkeys
+g.maplocalleader = ','                                                                 -- Use Space, like key for alternative hotkeys
 
 -- Custom {{{
 
@@ -65,4 +66,13 @@ nm('<Tab>', '<cmd>BufferLineCycleNext<CR>')                                     
 nm('<S-Tab>', '<cmd>BufferLineCyclePrev<CR>')                                        -- Toggle file explorer
 -- }}}
 
+-- vim undotree {{{
+-- nm('<leader>u', '<cmd>UndotreeToggle<CR>')                                        -- Toggle file explorer
+nm('<leader>u', '<cmd>UndotreeFocus<CR>')                                        -- Toggle file explorer
+nm('<leader>i', '<cmd>UndotreeHide<CR>')                                        -- Toggle file explorer
+-- }}}
+
+-- vim-fugtive {{{
+nm('<leader>g', '<cmd>Git<CR>')                                        -- Toggle file explorer
+-- }}}
 -- vim:tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=0 foldlevel=0

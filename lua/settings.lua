@@ -27,6 +27,9 @@ opt.undofile=true
 
 opt.wrap = false
 
+opt.conceallevel=2
+opt.matchtime=0
+
 opt.termguicolors = true
 
 opt.scrolloff=8

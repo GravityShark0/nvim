@@ -208,6 +208,12 @@ return {
 -- Blazingly Fast {{{
 	{ "ThePrimeagen/harpoon" },
 	{ "ThePrimeagen/vim-be-good" },
+  { "tpope/vim-fugitive",
+    cmd = { "Git" },
+  },
+  { "mbbill/undotree",
+    cmd = { "UndotreeToggle", "UndotreeFocus" }
+  },
 -- }}}
 
 -- nvim-colizer.lua {{{
@@ -241,13 +247,39 @@ return {
   "rcarriga/nvim-notify",
   config = {
     background_colour = "#000000",
-    top_down = false
+    top_down = false,
+    render = "compact"
   }
 },
 -- }}}
+
+-- Neorg {{{
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    ft = "norg",
+    cmd = { "Neorg" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.completion"] = {}, -- Setting up a completion engine
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/Notes",
+              default_workspace = "notes",
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
+-- }}}
 }
-
-
 
 
 -- vim:tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=0 foldlevel=0
