@@ -67,9 +67,9 @@ nm('<S-Tab>', '<cmd>BufferLineCyclePrev<CR>')                                   
 -- }}}
 
 -- vim undotree {{{
--- nm('<leader>u', '<cmd>UndotreeToggle<CR>')                                        -- Toggle file explorer
-nm('<leader>u', '<cmd>UndotreeFocus<CR>')                                        -- Toggle file explorer
-nm('<leader>i', '<cmd>UndotreeHide<CR>')                                        -- Toggle file explorer
+nm('<leader>u', '<cmd>UndotreeToggle<CR>')                                        -- Toggle file explorer
+nm('<leader>i', '<cmd>UndotreeFocus<CR>')                                        -- Toggle file explorer
+-- nm('<leader>i', '<cmd>UndotreeHide<CR>')                                        -- Toggle file explorer
 -- }}}
 
 -- vim-fugtive {{{
