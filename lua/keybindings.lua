@@ -3,8 +3,11 @@ require "helpers/keyboard"
 
 g.mapleader = ' '                                                                 -- Use Space, like key for alternative hotkeys
 -- g.maplocalleader = ','                                                                 -- Use Space, like key for alternative hotkeys
-
 -- Custom {{{
+-- Easier Indent moving in 
+vm('>', "> gv")
+vm('<', "< gv")
+
 
 -- Space + y|d yanks or cuts to system clipboard
 nvm('<leader>y', "\"+y")
