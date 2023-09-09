@@ -2,7 +2,7 @@ require "helpers/globals"
 require "helpers/keyboard"
 
 g.mapleader = ' '                                                                 -- Use Space, like key for alternative hotkeys
-g.maplocalleader = ','                                                                 -- Use Space, like key for alternative hotkeys
+-- g.maplocalleader = ','                                                                 -- Use Space, like key for alternative hotkeys
 
 -- Custom {{{
 
@@ -13,10 +13,10 @@ nvm('<leader>d', '\"+d')
 nvm('<leader>p', '<CMD> set paste<CR>\"+p<CMD>set paste!<CR>')
 nvm('<leader>P', '<CMD> set paste<CR>\"+P<CMD>set paste!<CR>')
 
--- Space + w to save and Space + c to close buffer
 nm('<leader>c', '<CMD>lua require("mini.bufremove").delete()<CR>')
-nm('<leader>wc', '<CMD>w | lua require("mini.bufremove").delete()<CR>')
-nm('<leader>ww', '<CMD>w<CR>')
+-- nm('<leader>wc', '<CMD>w | lua require("mini.bufremove").delete()<CR>')
+-- nm('<leader>ww', '<CMD>w<CR>')
+nm('<leader>w', '<CMD>w<CR>')
 
 -- Middle positioned C+ D/U 
 nm('<C-d>', '<C-d>zz')
@@ -58,7 +58,7 @@ nm('<leader>fu', '<cmd>Telescope undo<CR>')                                     
 
 -- Neo Tree {{{
 nm('<leader>n', '<cmd>Neotree toggle<CR>')                                        -- Toggle file explorer
-nm('<leader>e', '<cmd>Neotree focus<CR>')                                        -- Toggle file explorer
+nm('<leader>e', '<cmd>Neotree focus<CR>')                                        -- Focus file explorer
 -- }}}
 
 -- Bufferline {{{
@@ -73,6 +73,11 @@ nm('<leader>i', '<cmd>UndotreeFocus<CR>')                                       
 -- }}}
 
 -- vim-fugtive {{{
-nm('<leader>g', '<cmd>Git<CR>')                                        -- Toggle file explorer
+nm('<leader>gg', '<cmd>Git<CR>')
+nm('<leader>gd', '<cmd>Git diff<CR>')
+nm('<leader>gc', '<cmd>Git commit<CR>')
+nm('<leader>ga', '<cmd>Git add<CR>')
+nm('<leader>gp', '<cmd>Git pull<CR>')
+nm('<leader>gP', '<cmd>Git push<CR>')
 -- }}}
 -- vim:tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=0 foldlevel=0

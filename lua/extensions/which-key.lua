@@ -17,11 +17,11 @@ wk.register({
         u = { "Find (U)ndo tree"},
 
     },
-    w = {
-        name = "Save",
-        w = { "Save" },
-        c = { "Save and (C)lose" },
+    g = {
+        name = "Fu(Git)ive",
+        g = { "Git" },
     },
+    w = { "Save" },
     a = { "Harpoon (A)dd" },
     ["`"] = { "Harpoon List" },
     c = { "Buffer (C)lose" },
@@ -29,6 +29,7 @@ wk.register({
     y = { "which_key_ignore" },
     e = { "Neotree (E)nter" },
     n = { "Neotree (N)oggle" },
+    u = { "(U)ndotree Toggle" },
 
 }, { prefix = "<leader>" })
 

@@ -7,6 +7,17 @@
 
 require "helpers/globals"
 
+-- Some of the more extra plugins
+local extra = true
+-- Gitsigns
+-- Vim-illuminate
+-- which-key
+-- extra2 is eve more extra plugnio
+local extra2 = true
+-- neocolumn
+-- nvim-Notify
+-- noice.nvim
+
 return {
 -- Themes{{{
 
@@ -42,18 +53,19 @@ return {
   -- }}}
 
 -- neo-tree.nvim {{{
-   {
-       "nvim-neo-tree/neo-tree.nvim",
-       cmd = { "Neotree" },
-       dependencies = {
-         "nvim-lua/plenary.nvim",
-         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-         "MunifTanjim/nui.nvim",
-       },
-       config = function ()
-         require "extensions.neotree"
-       end,
-   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    -- enabled = extra,
+    cmd = { "Neotree" },
+    dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    "MunifTanjim/nui.nvim",
+     },
+     config = function ()
+       require "extensions.neotree"
+     end,
+  },
   -- }}}
 
   -- telescope-nvim {{{
@@ -62,7 +74,6 @@ return {
   cmd = { "Telescope" },
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "debugloop/telescope-undo.nvim",
   },
   config = function()
     require("extensions.telescope")
@@ -107,6 +118,7 @@ return {
   -- gitsigns.nvim {{{
   {
     'lewis6991/gitsigns.nvim',
+    enabled = extra,
     event = { "BufReadPre", "BufNewFile "},
     config = function()
       require "extensions.gitsigns"
@@ -146,6 +158,7 @@ return {
 -- vim-illuminate {{{
   {
     'RRethy/vim-illuminate',
+    enabled = extra,
     event = { "BufReadPre", "BufNewFile "},
     config = function ()
       require('illuminate').configure({
@@ -160,6 +173,7 @@ return {
   {
     "folke/which-key.nvim",
     -- event = "VeryLazy",
+  enabled = extra,
     init = function()
       opt.timeout = true
       opt.timeoutlen = 500
@@ -186,6 +200,7 @@ return {
 -- NeoColumn.nvim {{{
   {
     "ecthelionvi/NeoColumn.nvim",
+    enabled = extra2,
     event = { "BufReadPost", "BufNewFile" },
     opts = {  always_on = true }
   },
@@ -207,7 +222,11 @@ return {
 
 -- Blazingly Fast {{{
 	{ "ThePrimeagen/harpoon" },
-	{ "ThePrimeagen/vim-be-good" },
+	{
+    "ThePrimeagen/vim-be-good",
+    cmd = { "VimBeGood"}
+  },
+
   { "tpope/vim-fugitive",
     cmd = { "Git" },
   },
@@ -219,6 +238,7 @@ return {
 -- nvim-colizer.lua {{{
   {
     'norcalli/nvim-colorizer.lua',
+    -- Its only lazily enabled by a command so im not gonna put it in extras
     cmd = { 'ColorizerToggle' },
     opts = {}
   },
@@ -227,6 +247,7 @@ return {
 -- noice.nvim {{{
 {
   "folke/noice.nvim",
+  enabled = extra2,
   event = "VeryLazy",
   opts = {
     -- add any options here
@@ -245,7 +266,8 @@ return {
 -- nvim-notify {{{
 {
   "rcarriga/nvim-notify",
-  config = {
+  enabled = extra2,
+  opts = {
     background_colour = "#000000",
     top_down = false,
     render = "compact"
@@ -253,32 +275,6 @@ return {
 },
 -- }}}
 
--- Neorg {{{
-  {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    ft = "norg",
-    cmd = { "Neorg" },
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.completion"] = {}, -- Setting up a completion engine
-          ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-              workspaces = {
-                notes = "~/Notes",
-              default_workspace = "notes",
-              },
-            },
-          },
-        },
-      }
-    end,
-  },
--- }}}
 }
 
 
