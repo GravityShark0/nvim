@@ -19,16 +19,25 @@ wk.register({
     },
     g = {
         name = "Fu(Git)ive",
-        g = { "Git" },
+        g = { "(G)it" },
+        d = { "Git (D)iff" },
+        c = { "Git (C)ommit" },
+        a = { "Git (A)dd" },
+        s = { "Git (S)how" },
+        -- p = { "(G)it" },
+        -- P = { "(G)it" },
     },
     w = { "Save" },
+
     a = { "Harpoon (A)dd" },
     ["`"] = { "Harpoon List" },
+
     c = { "Buffer (C)lose" },
-    d = { "which_key_ignore" },
-    y = { "which_key_ignore" },
+    -- d = { "which_key_ignore" },
+    -- y = { "which_key_ignore" },
     e = { "Neotree (E)nter" },
     n = { "Neotree (N)oggle" },
+
     u = { "(U)ndotree Toggle" },
 
 }, { prefix = "<leader>" })

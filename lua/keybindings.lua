@@ -77,7 +77,8 @@ nm('<leader>gg', '<cmd>Git<CR>')
 nm('<leader>gd', '<cmd>Git diff<CR>')
 nm('<leader>gc', '<cmd>Git commit<CR>')
 nm('<leader>ga', '<cmd>Git add<CR>')
-nm('<leader>gp', '<cmd>Git pull<CR>')
-nm('<leader>gP', '<cmd>Git push<CR>')
+nm('<leader>gs', '<cmd>Git show<CR>')
+-- nm('<leader>gp', '<cmd>Git pull<CR>')
+-- nm('<leader>gP', '<cmd>Git push<CR>')
 -- }}}
 -- vim:tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=0 foldlevel=0
