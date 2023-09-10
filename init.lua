@@ -22,4 +22,5 @@ require("lazy").setup("plugins",
     },
 })
 vim.cmd.colorscheme "catppuccin"
+-- vim.cmd[[colorscheme tokyonight]]
 -- vim:tabstop=4 shiftwidth=4 expandtab syntax=lua foldmethod=marker foldlevelstart=0 foldlevel=0

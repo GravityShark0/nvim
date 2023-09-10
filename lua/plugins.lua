@@ -270,11 +270,25 @@ return {
   opts = {
     background_colour = "#000000",
     top_down = false,
-    render = "compact"
+    render = "compact",
+    stages = "fade",
+    timeout = 1000,
+    -- level = 2,
+    -- minimum_width = 50,
   }
 },
 -- }}}
 
+-- zen-mode {{{
+{
+  "folke/zen-mode.nvim",
+  cmd = { "ZenMode" },
+  opts = {
+    window = {
+      width = .5, -- width of the Zen window
+    },
+  }
+}-- }}}
 }
 
 
