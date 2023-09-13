@@ -17,6 +17,7 @@ local extra2 = true
 -- neocolumn
 -- nvim-Notify
 -- noice.nvim
+-- barbecue
 
 return {
 -- Themes{{{
@@ -302,6 +303,7 @@ return {
 -- nvim-navic {{{
 {
   "utilyre/barbecue.nvim",
+  enabled = extra2,
   event = { "BufReadPre", "BufNewFile "},
   name = "barbecue",
   version = "*",
