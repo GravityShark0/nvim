@@ -12,7 +12,9 @@ require("lualine").setup {
     },
     -- lualine_c = { 'fileformat' },
     lualine_b = {},
-    lualine_c = { 'filename', 'branch', 'diff'},
+    -- because barbeque/nvim-navic is installed
+    lualine_c = { 'branch', 'diff'},
+    -- lualine_c = { 'filename', 'branch', 'diff'},
     lualine_x = { 'diagnostics', {require"extensions.lualine_lsp", color = { gui='italic' }}, 'filetype' },
     -- lualine_y = { 'progress' },
     lualine_y = { },
