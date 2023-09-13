@@ -22,10 +22,18 @@ return {
 -- Themes{{{
 
 -- Catppuccin
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000,
-  lazy = false,
-  opts = require"extensions.colorscheme.catppuccin"
+  {
+    "catppuccin/nvim", name = "catppuccin", priority = 1000,
+    lazy = false,
+    opts = require"extensions.colorscheme.catppuccin"
   },
+  -- {
+  --   "ray-x/aurora", name = "aurora", priority = 1000,
+  --   lazy = false,
+  --   -- opts = require"extensions.colorscheme.catppuccin"
+  -- },
+-- { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
+-- { "jacoborus/tender.vim" },
 
 -- Tokyo Night
   -- {
@@ -285,10 +293,27 @@ return {
   cmd = { "ZenMode" },
   opts = {
     window = {
-      width = .5, -- width of the Zen window
+      width = .55, -- width of the Zen window
     },
   }
-}-- }}}
+},
+-- }}}
+
+-- nvim-navic {{{
+{
+  "utilyre/barbecue.nvim",
+  event = { "BufReadPre", "BufNewFile "},
+  name = "barbecue",
+  version = "*",
+  dependencies = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons", -- optional dependency
+  },
+  opts = {
+    theme = "catppuccin",
+  },
+}
+-- }}}
 }
 
 

@@ -1,6 +1,7 @@
 local M = {}
 local bufferline = require('bufferline')
 local bufremove = require("mini.bufremove")
+local mocha = require("catppuccin.palettes").get_palette "mocha"
 
 M.bufrem = function(bufnr)
     if not bufremove.delete(bufnr, false) then
@@ -20,8 +21,23 @@ M.setup = function()
         options = {
             style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
             themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
-            highlights = require("catppuccin.groups.integrations.bufferline").get(),
-
+                highlights = require("catppuccin.groups.integrations.bufferline").get {
+                    styles = { "italic", "bold" },
+                    custom = {
+                        all = {
+                            fill = { bg = "#FFFFFF" },
+                            background = { bg = "#FFFFFF" },
+                            tab = { bg = "#FFFFFF" },
+                            tab_selected = { bg = "#FFFFFF" },
+                        },
+                        mocha = {
+                            background = { fg = mocha.text },
+                        },
+                        latte = {
+                            background = { fg = "#000000" },
+                        },
+                    },
+                },
             close_command = function(bufnr) -- can be a string | function, see "Mouse actions"
                 M.bufrem(bufnr)
             end,
@@ -58,9 +74,15 @@ M.setup = function()
             diagnostics = "nvim_lsp",
             diagnostics_update_in_insert = false,
             -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
+            -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            --     return "("..count..")"
+            -- end, 
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
-                return "("..count..")"
+              local icon = level:match("error") and " " or " "
+              return " " .. icon .. count
             end,
+
+
             -- NOTE: this will be called a lot so don't do any heavy processing here
             custom_filter = function(buf_number, buf_numbers)
                 -- filter out filetypes you don't want to see
@@ -106,7 +128,7 @@ M.setup = function()
                 delay = 200,
                 reveal = {'close'}
             },
-            after = "catppuccin",
+            -- after = "catppuccin",
             -- sort_by = 'insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
             --     -- add custom logic
             --     return buffer_a.modified > buffer_b.modified
