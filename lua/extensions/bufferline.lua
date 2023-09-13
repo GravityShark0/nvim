@@ -1,7 +1,7 @@
 local M = {}
 local bufferline = require('bufferline')
 local bufremove = require("mini.bufremove")
-local mocha = require("catppuccin.palettes").get_palette "mocha"
+-- local mocha = require("catppuccin.palettes").get_palette "mocha"
 
 M.bufrem = function(bufnr)
     if not bufremove.delete(bufnr, false) then
@@ -21,23 +21,23 @@ M.setup = function()
         options = {
             style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
             themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
-                highlights = require("catppuccin.groups.integrations.bufferline").get {
-                    styles = { "italic", "bold" },
-                    custom = {
-                        all = {
-                            fill = { bg = "#FFFFFF" },
-                            background = { bg = "#FFFFFF" },
-                            tab = { bg = "#FFFFFF" },
-                            tab_selected = { bg = "#FFFFFF" },
-                        },
-                        mocha = {
-                            background = { fg = mocha.text },
-                        },
-                        latte = {
-                            background = { fg = "#000000" },
-                        },
-                    },
-                },
+                -- highlights = require("catppuccin.groups.integrations.bufferline").get {
+                --     styles = { "italic", "bold" },
+                --     custom = {
+                --         all = {
+                --             fill = { bg = "#FFFFFF" },
+                --             background = { bg = "#FFFFFF" },
+                --             tab = { bg = "#FFFFFF" },
+                --             tab_selected = { bg = "#FFFFFF" },
+                --         },
+                --         mocha = {
+                --             background = { fg = mocha.text },
+                --         },
+                --         latte = {
+                --             background = { fg = "#000000" },
+                --         },
+                --     },
+                -- },
             close_command = function(bufnr) -- can be a string | function, see "Mouse actions"
                 M.bufrem(bufnr)
             end,
