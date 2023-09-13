@@ -110,7 +110,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
-      require("extensions.bufferline")
+      require("extensions.bufferline").setup()
   end,
   },
 -- }}}

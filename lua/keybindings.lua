@@ -16,8 +16,24 @@ nvm('<leader>d', '\"+d')
 nvm('<leader>p', '<CMD> set paste<CR>\"+p<CMD>set paste!<CR>')
 nvm('<leader>P', '<CMD> set paste<CR>\"+P<CMD>set paste!<CR>')
 
-nm('<leader>c', '<CMD>lua require("mini.bufremove").delete()<CR>')
--- nm('<leader>wc', '<CMD>w | lua require("mini.bufremove").delete()<CR>')
+-- local function bufdel ()
+--   local currentbuf = vim.api.nvim_get_current_buf()
+--   local bufremove = require("mini.bufremove")
+--   if not bufremove.delete(currentbuf, false) then
+--     local choice = vim.fn.confirm("Save changes to " .. vim.fn.expand("%:p"), "&Yes\n&No\n&Cancel", 3)
+--
+--     if choice == 1 then
+--         vim.cmd('update')
+--         bufremove.delete(currentbuf, false)
+--     elseif choice == 2 then
+--         bufremove.delete(currentbuf, true)
+--     end
+--   end
+-- end
+
+-- nm('<leader>c', bufdel())
+-- fat \/
+nm('<leader>c', '<CMD>lua require("extensions.bufferline").bufrem(vim.api.nvim_get_current_buf())<CR>')
 -- nm('<leader>ww', '<CMD>w<CR>')
 nm('<leader>w', '<CMD>w<CR>')
 

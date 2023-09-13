@@ -1,6 +1,21 @@
+local M = {}
 local bufferline = require('bufferline')
+local bufremove = require("mini.bufremove")
 
-return {
+M.bufrem = function(bufnr)
+    if not bufremove.delete(bufnr, false) then
+        local choice = vim.fn.confirm("Save changes to " .. vim.fn.expand("%:p"), "&Yes\n&No\n&Cancel", 3)
+
+        if choice == 1 then
+            vim.cmd('update')
+            bufremove.delete(bufnr, false)
+        elseif choice == 2 then
+            bufremove.delete(bufnr, true)
+        end
+    end
+end
+
+M.setup = function()
     bufferline.setup {
         options = {
             style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
@@ -8,13 +23,14 @@ return {
             highlights = require("catppuccin.groups.integrations.bufferline").get(),
 
             close_command = function(bufnr) -- can be a string | function, see "Mouse actions"
-                require("mini.bufremove").delete(bufnr, false)
+                M.bufrem(bufnr)
             end,
             right_mouse_command = function(bufnr) -- can be a string | function, see "Mouse actions"
-                require("mini.bufremove").delete(bufnr, false)
+                M.bufrem(bufnr)
             end,
+            -- right_mouse_command = "vertical sb %d",
             left_mouse_command = "buffer %d",    -- can be a string | function, | false see "Mouse actions"
-            middle_mouse_command = nil,          -- can be a string | function, | false see "Mouse actions"
+            middle_mouse_command = "vertical sb %d",          -- can be a string | function, | false see "Mouse actions"
             indicator = {
                 icon = '▎', -- this should be omitted if indicator style is not 'icon'
                 style = 'underline',
@@ -97,4 +113,6 @@ return {
             -- end
         }
 }
-}
+end
+
+return M
