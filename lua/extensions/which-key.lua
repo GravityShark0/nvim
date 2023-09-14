@@ -43,9 +43,13 @@ wk.register({
 }, { prefix = "<leader>" })
 
 return {
-    triggers = {
-      "<leader>",
-      "z",
-      "g"
+    -- triggers = {
+    --   "<leader>",
+    --   "z",
+    --   "g"
+    -- }
+    window = {
+        border = "double",
+        winblend = 100,
     }
 }
