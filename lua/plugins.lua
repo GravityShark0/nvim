@@ -26,7 +26,7 @@ return {
   {
     "catppuccin/nvim", name = "catppuccin", priority = 1000,
     lazy = false,
-    opts = require"extensions.colorscheme.catppuccin"
+    opts = require"extensions.colorscheme.catppuccin",
   },
   -- {
   --   "ray-x/aurora", name = "aurora", priority = 1000,
