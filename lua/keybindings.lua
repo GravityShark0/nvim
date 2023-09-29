@@ -73,6 +73,7 @@ nm('<leader>ft', '<cmd>Telescope buffers<CR>')                                  
 nm('<leader>f?', '<cmd>Telescope<CR>')                                          -- Show all commands
 nm('<leader>fs', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')            -- Search for dynamic symbols
 nm('<leader>fu', '<cmd>Telescope undo<CR>')                                     -- Show undotree 
+nm('<leader>fn', '<cmd>Telescope notify<CR>')                                   -- Show nvim-notify history
 -- }}}
 
 -- Neo Tree {{{
@@ -86,7 +87,7 @@ nm('<S-Tab>', '<cmd>BufferLineCyclePrev<CR>')                                   
 -- }}}
 
 -- vim undotree {{{
-nm('<leader>u', '<cmd>UndotreeToggle<CR>')                                        -- Toggle file explorer
+nm('<leader>u', '<cmd>UndotreeToggle || UndotreeFocus<CR>')                                        -- Toggle file explorer
 nm('<leader>i', '<cmd>UndotreeFocus<CR>')                                        -- Toggle file explorer
 -- nm('<leader>i', '<cmd>UndotreeHide<CR>')                                        -- Toggle file explorer
 -- }}}

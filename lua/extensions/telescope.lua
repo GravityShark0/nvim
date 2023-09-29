@@ -44,5 +44,6 @@ telescope.setup({
             case_mode = "smart_case",
         }
     },
-    telescope.load_extension('fzf')
+    telescope.load_extension('fzf'),
+    telescope.load_extension('notify')
 })

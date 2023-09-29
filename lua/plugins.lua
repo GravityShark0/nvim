@@ -314,7 +314,7 @@ return {
   opts = {
     theme = "catppuccin",
   },
-}
+},
 -- }}}
 }
 
