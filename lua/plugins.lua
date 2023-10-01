@@ -5,8 +5,6 @@
   See: https://github.com/folke/lazy.nvim
 ]]
 
-require "helpers/globals"
-
 -- Some of the more extra plugins
 local extra = true
 -- Gitsigns
@@ -184,8 +182,8 @@ return {
     -- event = "VeryLazy",
   enabled = extra,
     init = function()
-      opt.timeout = true
-      opt.timeoutlen = 500
+      vim.opt.timeout = true
+      vim.opt.timeoutlen = 500
     end,
     opts = function ()
       require"extensions.which-key"
@@ -336,6 +334,53 @@ return {
     cmd = { "TroubleToggle" },
 },
 -- }}}
+
+-- mini.sorround {{{
+{ 'echasnovski/mini.surround', version = false,
+  event = { "BufReadPost", "BufNewFile" },
+  config = {
+    mappings = {
+    add = 'gsa', -- Add surrounding in Normal and Visual modes
+    delete = 'gsd', -- Delete surrounding
+    find = 'gsf', -- Find surrounding (to the right)
+    find_left = 'gsF', -- Find surrounding (to the left)
+    highlight = 'gsh', -- Highlight surrounding
+    replace = 'gsr', -- Replace surrounding
+    update_n_linegs = 'gsn', -- Update `n_lines`
+
+    suffix_last = 'l', -- Suffix to search with "prev" method
+    suffix_next = 'n', -- Suffix to search with "next" method
+    },
+  }
+},
+-- }}}
+
+-- flash.nvim {{{
+{
+  "folke/flash.nvim",
+  event = "VeryLazy",
+  -- event = { "BufReadPre", "BufNewFile "},
+  ---@type Flash.Config
+  opts = {},
+  -- stylua: ignore
+  keys = {
+    { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
+    { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  },
+},
+-- }}}
+
+{
+  "dstein64/vim-startuptime",
+  cmd = "StartupTime",
+  config = function()
+    vim.g.startuptime_tries = 10
+  end,
+}
+
 }
 
 

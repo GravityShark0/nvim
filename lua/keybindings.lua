@@ -1,7 +1,6 @@
-require "helpers/globals"
 require "helpers/keyboard"
 
-g.mapleader = ' '                                                                 -- Use Space, like key for alternative hotkeys
+vim.g.mapleader = ' '                                                                 -- Use Space, like key for alternative hotkeys
 -- g.maplocalleader = ','                                                                 -- Use Space, like key for alternative hotkeys
 -- Custom {{{
 -- Easier Indent moving in 
@@ -45,12 +44,12 @@ nm('<C-u>', '<C-u>zz')
 -- Harpoon {{{
 		nm('<leader>a', '<CMD> lua require("harpoon.mark").add_file() <CR>')
 		nm('<leader>`', '<CMD> lua require("harpoon.ui").toggle_quick_menu() <CR>')
-		nm('<A-1>', '<CMD> lua require("harpoon.ui").nav_file(1) <CR>')
-		nm('<A-2>', '<CMD> lua require("harpoon.ui").nav_file(2) <CR>')
-		nm('<A-3>', '<CMD> lua require("harpoon.ui").nav_file(3) <CR>')
-		nm('<A-4>', '<CMD> lua require("harpoon.ui").nav_file(4) <CR>')
-		nm('<A-5>', '<CMD> lua require("harpoon.ui").nav_file(5) <CR>')
-		nm('<A-6>', '<CMD> lua require("harpoon.ui").nav_file(6) <CR>')
+		nm('<leader>1', '<CMD> lua require("harpoon.ui").nav_file(1) <CR>')
+		nm('<leader>2', '<CMD> lua require("harpoon.ui").nav_file(2) <CR>')
+		nm('<leader>3', '<CMD> lua require("harpoon.ui").nav_file(3) <CR>')
+		nm('<leader>4', '<CMD> lua require("harpoon.ui").nav_file(4) <CR>')
+		nm('<leader>5', '<CMD> lua require("harpoon.ui").nav_file(5) <CR>')
+		nm('<leader>6', '<CMD> lua require("harpoon.ui").nav_file(6) <CR>')
 -- }}}
 
 -- LSP {{{

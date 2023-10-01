@@ -4,72 +4,70 @@
   Info: Use <zo> and <zc> to open and close foldings
 ]]
 
-require "helpers/globals"
-
 -- Set associating between turned on plugins and filetype
-cmd[[filetype plugin on]]
+vim.cmd[[filetype plugin on]]
 
 -- Disable comments on pressing Enter
-cmd[[autocmd FileType * setlocal formatoptions-=cro]]
+vim.cmd[[autocmd FileType * setlocal formatoptions-=cro]]
 
 -- LSP Diagnostics {{{
 local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
-  fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 -- }}}
 
 -- Self {{{
-opt.nu=true
-opt.relativenumber=true
-opt.undofile=true
+vim.opt.nu=true
+vim.opt.relativenumber=true
+vim.opt.undofile=true
 
-opt.wrap = false
+vim.opt.wrap = false
 
-opt.conceallevel=2
-opt.matchtime=0
+vim.opt.conceallevel=2
+vim.opt.matchtime=0
 
-opt.termguicolors = true
+vim.opt.termguicolors = true
 
-opt.scrolloff=8
-opt.updatetime=50
+vim.opt.scrolloff=8
+vim.opt.updatetime=50
 -- }}}
 
 -- Tabs {{{
-opt.expandtab = true                -- Use spaces by default
-opt.shiftwidth = 4                  -- Set amount of space characters, when we press "<" or ">"
-opt.softtabstop=4
-opt.tabstop = 4                     -- 1 tab equal 2 spaces
-opt.smartindent = true              -- Turn on smart indentation. See in the docs for more info
+vim.opt.expandtab = true                -- Use spaces by default
+vim.opt.shiftwidth = 4                  -- Set amount of space characters, when we press "<" or ">"
+vim.opt.softtabstop=4
+vim.opt.tabstop = 4                     -- 1 tab equal 2 spaces
+vim.opt.smartindent = true              -- Turn on smart indentation. See in the docs for more info
 -- }}}
 
 -- Folding {{{
-opt.foldmethod = 'marker'
+vim.opt.foldmethod = 'marker'
 -- }}}
 
 -- Search {{{
-opt.ignorecase = true               -- Ignore case if all characters in lower case
-opt.joinspaces = false              -- Join multiple spaces in search
-opt.smartcase = true                -- When there is a one capital letter search for exact match
-opt.showmatch = true                -- Highlight search instances
+vim.opt.ignorecase = true               -- Ignore case if all characters in lower case
+vim.opt.joinspaces = false              -- Join multiple spaces in search
+vim.opt.smartcase = true                -- When there is a one capital letter search for exact match
+vim.opt.showmatch = true                -- Highlight search instances
 -- }}}
 
 -- Window {{{
-opt.splitbelow = true               -- Put new windows below current
-opt.splitright = true               -- Put new vertical splits to right
+vim.opt.splitbelow = true               -- Put new windows below current
+vim.opt.splitright = true               -- Put new vertical splits to right
 -- }}}
 
 -- Wild Menu {{{
-opt.wildmenu = true
-opt.wildmode = "longest:full,full"
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"
 -- }}}
 
 -- Default Plugins {{{
 local disabled_built_ins = {
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
+    -- "netrw",
+    -- "netrwPlugin",
+    -- "netrwSettings",
     "netrwFileHandlers",
     "gzip",
     "zip",
@@ -88,7 +86,7 @@ local disabled_built_ins = {
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-    g["loaded_" .. plugin] = 1
+    vim.g["loaded_" .. plugin] = 1
 end
 -- }}}
 
