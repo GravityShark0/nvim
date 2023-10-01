@@ -325,7 +325,16 @@ return {
     config = function ()
         require('alpha').setup(require("extensions.alpha").config)
     end
-};
+},
+-- }}}
+
+-- trouble is back {{{
+{
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = { },
+    cmd = { "TroubleToggle" },
+},
 -- }}}
 }
 
