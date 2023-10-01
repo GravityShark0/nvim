@@ -317,6 +317,16 @@ return {
   },
 },
 -- }}}
+
+-- alpha-nvim {{{
+{
+    'goolord/alpha-nvim',
+    lazy = false,
+    config = function ()
+        require('alpha').setup(require("extensions.alpha").config)
+    end
+};
+-- }}}
 }
 
 
