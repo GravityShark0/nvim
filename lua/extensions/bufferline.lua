@@ -1,9 +1,9 @@
 local M = {}
 local bufferline = require('bufferline')
-local bufremove = require("mini.bufremove")
 -- local mocha = require("catppuccin.palettes").get_palette "mocha"
 
 M.bufrem = function(bufnr)
+    local bufremove = require("mini.bufremove")
     if not bufremove.delete(bufnr, false) then
         local choice = vim.fn.confirm("Save changes to " .. vim.fn.expand("%:p"), "&Yes\n&No\n&Cancel", 3)
 

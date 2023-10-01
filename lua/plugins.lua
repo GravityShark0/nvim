@@ -197,6 +197,7 @@ return {
 -- indent-blankline.nvim {{{
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     event = { "BufReadPre", "BufNewFile "},
     opts = {
       space_char_blankline = " ",
