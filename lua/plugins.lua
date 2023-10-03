@@ -5,17 +5,24 @@
   See: https://github.com/folke/lazy.nvim
 ]]
 
--- Some of the more extra plugins
-local extra = true
+-- Plugins that activate by commands are not affected by these
+local extra = false
 -- Gitsigns
 -- Vim-illuminate
 -- which-key
+
 -- extra2 is eve more extra plugnio
-local extra2 = true
+local extra2 = false
 -- neocolumn
 -- nvim-Notify
 -- noice.nvim
 -- barbecue
+
+-- EVEN MORE USELESS
+local extra3 = false
+-- alpha-nvim
+-- flash.nvim
+-- vim-startuptime
 
 return {
 -- Themes{{{
@@ -133,7 +140,7 @@ return {
   },
   -- }}}
 
-  -- nvim-treesitter {{{
+  -- -- nvim-treesitter {{{
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -142,17 +149,28 @@ return {
       require "extensions.treesitter"
     end
   },
-  -- }}}
+  -- -- }}}
 
 -- lualine.nvim {{{
-  {
-    "nvim-lualine/lualine.nvim",
-    lazy = false,
-    config = function()
-      require "extensions.lualine"
-    end,
-  },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require "extensions.lualine"
+  --   end,
+  -- },
 -- }}}
+
+-- {
+--   'glepnir/galaxyline.nvim',
+--   branch = 'main',
+--   -- your statusline
+--   config = function()
+--     require('my_statusline')
+--   end,
+--   -- some optional icons
+--   requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+-- },
 
 -- nvim-autopairs {{{
   {
@@ -198,8 +216,14 @@ return {
     main = "ibl",
     event = { "BufReadPre", "BufNewFile "},
     opts = {
-      space_char_blankline = " ",
-      show_current_context = true,
+      -- indent = { highlight = highlight, char = "" },
+      -- whitespace = {
+      --     -- highlight = highlight,
+      --     remove_blankline_trail = true,
+      -- },
+      -- scope = { enabled = true },
+      -- space_char_blankline = " ",
+      -- show_current_context = true,
       -- show_current_context_start = true,
     },
 },
@@ -318,6 +342,7 @@ return {
 
 -- alpha-nvim {{{
 {
+    enabled = extra3,
     'goolord/alpha-nvim',
     lazy = false,
     config = function ()
@@ -358,6 +383,7 @@ return {
 -- flash.nvim {{{
 {
   "folke/flash.nvim",
+  enabled = extra3,
   event = "VeryLazy",
   -- event = { "BufReadPre", "BufNewFile "},
   ---@type Flash.Config
@@ -373,13 +399,16 @@ return {
 },
 -- }}}
 
+-- vim-startuptime {{{
 {
   "dstein64/vim-startuptime",
+  enabled = extra3,
   cmd = "StartupTime",
   config = function()
     vim.g.startuptime_tries = 10
   end,
 }
+-- }}}
 
 }
 
