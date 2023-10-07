@@ -1,5 +1,9 @@
+# its all brokey and stuff and now im using my own from kickstart which is [here](https://github.com/GravityShark0/nvim-kick)
+
 # my nvim config from neovim-boilerplate
 and some *borrowed* ideas
+
+
 
 You can use this template with the following command:
 
